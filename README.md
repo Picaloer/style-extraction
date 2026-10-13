@@ -49,6 +49,64 @@ python3 $W/tools/stylex.py -h | sed -n 4p
 
 Windows 上注意：路径总长超过 260 字符时浏览器会打不开文件，导出 PDF 前把 HTML 复制到短路径。
 
+## 示例：从一段视频到一份风格文档
+
+下面是一次真实运行：输入是 1 段 3 分 32 秒、720p 的 HD-2D 风格 JRPG 实机视频，输出是 20 页 PDF 和单文件 HTML。所有文件都在 [`examples/`](examples/)。
+
+### 输入
+
+一段单镜头实机视频（左上角有视频平台水印，右下角有游戏自己的 HUD）。仓库里放的是 12 秒节选 [`clip-12s.mp4`](examples/input/clip-12s.mp4)：
+
+![input preview](examples/input/clip-preview.gif)
+
+对 Claude 说：
+
+> 提炼这段视频的美术风格 `D:ideos\game.mp4`
+
+### 处理过程
+
+| 步骤 | 命令 | 产物 |
+|---|---|---|
+| 抽帧看片 | `stylex.py sample` | 联系表，按画面突变切分、取每段最清晰的一帧 |
+| 去水印 | `stylex.py overlay` / `crop` | 避开水印和 HUD 的 16:9 裁切 |
+| 测色 | `stylex.py measure` / `pick` | 三层调色、色相角、取色点 |
+| 出配图 | `stylex.py crops` | 配图和 2–4 倍放大的标本 |
+
+联系表（`sample`）：
+
+![contact sheet](examples/process/1-contact-sheet.jpg)
+
+水印检测和裁切预览（`overlay`，红框是叠加物，绿框是裁切）：
+
+![overlay](examples/process/2-overlay-crop.jpg)
+
+取色点（`pick`，洋红框标出取色位置，用来确认没取歪）：
+
+![pick](examples/process/3-pick.jpg)
+
+配图和标本总览（`crops` + `sheet`）：
+
+![plates](examples/process/4-plates.jpg)
+![specimens](examples/process/5-specimens.jpg)
+
+### 输出
+
+- PDF：[`autumn-stairs-style.pdf`](examples/output/autumn-stairs-style.pdf)（20 页，1.8 MB，字体全部内嵌）
+- HTML：[`autumn-stairs-style.html`](examples/output/autumn-stairs-style.html)（单文件，图片内嵌）
+- 内容源文件：[`content.json`](examples/output/content.json)、[`crops.json`](examples/output/crops.json)，改了它们再 `build` 就能重新生成
+
+文档截图（桌面端 1280 px 宽）：
+
+![page 1](examples/output/screenshots/page-01.jpg)
+![page 3](examples/output/screenshots/page-03.jpg)
+![page 5](examples/output/screenshots/page-05.jpg)
+![page 7](examples/output/screenshots/page-07.jpg)
+![page 9](examples/output/screenshots/page-09.jpg)
+
+这次实测得到的几个数字：1 个美术像素约 2.3 px（720p）；清晰带占画面高度的 25%–54%；暗部夜里占 67%–68%、傍晚占 51%–53%；全程 0 次切镜。
+
+> 示例里的视频节选和游戏画面版权属于原作者，仅用于演示本工具的输入输出。
+
 ## 用法
 
 对 Claude 说：
