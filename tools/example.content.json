@@ -1,0 +1,192 @@
+{
+  "doc_title": "八方旅人美术风格定义",
+  "kicker": "STYLE STUDY · 歧路旅人 I · II",
+  "title": "八方旅人",
+  "title_en": "OCTOPATH TRAVELER · HD-2D",
+  "thesis": "把 16-bit 时代的像素小人，放进一座用移轴镜头拍摄、实时打光的 3D 微缩模型里。",
+  "hero": {"img": "hero", "alt": "秋叶石阶夜景：四名旅人站在两座火盆之间，石阶通向山顶。"},
+  "sig": [
+    {"value": "32", "label": "角色身高，美术像素（实测 27–33）"},
+    {"value": "25–58%", "label": "清晰带在画面中的高度"},
+    {"value": "4–18%", "label": "亮部只占这么多画面"},
+    {"value": "13", "unit": "dB", "label": "战斗比探索响这么多"}
+  ],
+  "sections": [
+    {"id": "define", "eyebrow": "Definition", "title": "八方旅人的画面是什么", "toc": "定义", "blocks": [
+      {"type": "cols", "layout": "wide-left",
+       "left": [{"type": "prose", "paras": [
+         "八方旅人的画面，Square Enix 叫它 HD-2D {{资料}}。它把一座有体积的 3D 场景当成桌上的微缩模型来拍：模型的每一面都贴着像素画，约 32 像素高的小人站在里面，被真实的光照亮，投下真实的影子；镜头从斜上方俯视，只让角色所在的一条水平带保持清晰。",
+         "这套风格靠一种分工成立。画面里画的“内容”是低分辨率的像素：场景贴图、角色、魔物、地面小物。画面的“光学”是高清的：光照、景深、泛光、雾和技能特效。只要有一层换了精度，比如把特效做成像素风，或把角色换成高清立绘，风格就散了。",
+         "情绪是怀旧和静谧，像在夜里看一出被台灯照亮的舞台剧。本页依据 5 段实机视频，4 段来自二代，1 段来自初代；数值分别标注实测、目测、起调或资料。"]}],
+       "right": [{"type": "card", "items": [
+         ["SUBJECT", "中世纪奇幻大陆：秋叶石阶、港镇、古典宅邸。"],
+         ["MOOD", "怀旧、静谧，像一出舞台剧。夜色深，火光暖。"],
+         ["LINEAGE", "超任时代的 16-bit JRPG、移轴摄影、微缩模型、管弦乐。"],
+         ["TELL", "画面只有中间一条清晰带；暗部是靛紫而不是黑；32 像素的小人站在会投影的真光里。"]]}]},
+      {"type": "pillars", "items": [
+        {"name": "微缩", "en": "MINIATURE", "text": "世界是一座桌上模型。镜头从斜上方俯视，前景的岩壁和灌木虚化成画框，远处的灯火散成光斑。", "rule": "清晰带只占画面高度的 25%–58%，顶端和底端的清晰度降到峰值的 2%–25% {{实测}}"},
+        {"name": "低调光", "en": "LOW KEY", "text": "光是主角，而且很少。大部分画面沉在暗部，几处暖光照亮叙事焦点。", "rule": "暗部（L* < 20）占 43%–68%，亮部（L* ≥ 55）只占 4%–18% {{实测}}"},
+        {"name": "像素内容", "en": "PIXEL CONTENT", "text": "场景贴图、角色、魔物、地面小物全是像素画，而且共用一个像素密度。", "rule": "1 美术像素 ≈ 1080p 下 4 个屏幕像素，相当于在 480×270 的画布上作画 {{实测}}"},
+        {"name": "高清光学", "en": "HD OPTICS", "text": "光照、景深、泛光、雾和技能特效全部按高清处理，平滑、柔和、会发光。", "rule": "特效永远不像素化；火芯过曝成白，再向外晕开一圈 {{目测}}"}
+      ]}
+    ]},
+    {"id": "palette", "eyebrow": "Palette", "title": "色彩：冷暗底，暖小光", "toc": "色彩", "lede": "色值全部取自实机画面。点击任意色块复制色值。", "blocks": [
+      {"type": "swatches", "groups": [
+        {"name": "夜", "en": "NIGHT", "desc": "夜景的暗部和环境光。暗部是带色相的靛紫，不是黑。", "colors": [["靛紫", "#2A1134", "大面积暗部"], ["深夜紫", "#14061B", "最深的阴影"], ["月光", "#33508A", "受月光的面"], ["月光高光", "#8C9EBE", "冷高光"]]},
+        {"name": "光源", "en": "PRACTICALS", "desc": "画面里唯一饱和的暖色，面积很小。", "colors": [["火光晕", "#E2B783", "火盆外圈"], ["火光地面", "#C48D5D", "火盆之间的地面"]]},
+        {"name": "昼", "en": "DAY", "desc": "白天主光变暖，阴影反过来偏紫红。", "colors": [["洋红褐", "#311127", "白天的阴影"], ["受光秋叶", "#ECC68E", "白天主光"]]}
+      ]},
+      {"type": "cols",
+       "left": [{"type": "prose", "h3": "色彩规则", "paras": [
+         "**暗部带色相。**夜景暗部是 `#2A1134` 一类的靛紫，Lab 色相角约 315° {{实测}}；白天暗部是 `#311127` 的洋红褐。",
+         "**冷环境，暖光源。**夜里环境光是月光蓝 `#33508A`，光源是琥珀色 `#E2B783`。",
+         "**亮部要小。**亮部面积只占画面的 4%–18% {{实测}}，靠面积小来显得亮。"]}],
+       "right": [{"type": "tiers", "rows": [
+         {"label": "A 秋叶石阶 · 夜", "frame": "A_30.0"},
+         {"label": "A 秋叶石阶 · 昼", "frame": "A_150.0"},
+         {"label": "C 港镇郊外 · 夜", "frame": "C_0.0"},
+         {"label": "E 宅邸 Boss 战", "frame": "E_60.0"}], "grey_compare": 0,
+         "note": "每一行是一个参考画面：按亮度分成暗部、中间调、亮部三层，每层取三种主色，色块宽度等于它占的面积。最后一行是对照：同一帧去掉色相，暗部一变成中性灰，夜色就发脏。"}]},
+      {"type": "script", "h3": "色彩脚本：同一座模型，两套光", "intro": "二代可以随时切换昼夜。下面是同一个秋叶石阶在夜里和白天的实测色彩分布。", "items": [
+        {"img": "stairs_night", "big": "夜", "frame": "A_30.0", "note": "A 0:30 · 暗部是靛紫，亮部只剩火光。"},
+        {"img": "stairs_day", "big": "昼", "frame": "A_150.0", "note": "A 2:30 · 阴影转成洋红褐，秋叶亮成橙黄。"}]}
+    ]},
+    {"id": "l1", "num": "L1", "eyebrow": "L1 · Geometry", "title": "L1 体块：块状的 3D 舞台", "toc": "体块", "blocks": [
+      {"type": "cols", "layout": "wide-left",
+       "left": [{"type": "diagram", "label": "STACK · 一帧画面的七层", "svg": "<svg viewBox='0 0 640 250' role='img' aria-label='一帧画面由七层叠成'><g fill='rgba(217,189,127,.12)' stroke='#7d6a45'><rect x='20' y='200' width='300' height='26'/><rect x='34' y='170' width='272' height='26'/><rect x='48' y='140' width='244' height='26'/><rect x='62' y='110' width='216' height='26'/><rect x='76' y='80' width='188' height='26'/><rect x='90' y='50' width='160' height='26'/><rect x='104' y='20' width='132' height='26'/></g><g class='d-t'><text x='340' y='218'>L1 体块 · 像素密度</text><text x='340' y='188'>L2 像素皮 · 像素密度</text><text x='340' y='158'>L3 角色与魔物 · 像素密度</text><text x='340' y='128'>L4 光 · 高清</text><text x='340' y='98'>L5 空气 · 高清</text><text x='340' y='68'>L6 镜头与后期 · 高清</text><text x='340' y='38'>L7 界面 · 最后盖上</text></g><text class='d-g' x='20' y='246'>BOTTOM → TOP</text></svg>", "note": "L1–L3 决定画的是什么，共用一个像素密度；L4–L6 决定看起来像什么，全部按高清处理。"}],
+       "right": [{"type": "prose", "paras": [
+         "场景是真正的 3D 模型。台阶、岩壁、建筑、家具都有体积，有遮挡、有透视、接受光影。",
+         "形体高度概括，多是块状和阶梯状：秋叶石阶是一级级方块，港镇是方盒子房屋加石砌台阶。细节不靠建模，全交给贴图和光。",
+         "地面摆满小物件：碎石、宝箱、蜡烛、石灯，像微缩模型里手工摆上去的配件。"]}]},
+      {"type": "plate", "img": "harbour_night", "alt": "港镇郊外夜景，两座火盆之间站着提灯的卡斯蒂。", "caption": "港镇郊外：方盒子的岩台和石阶，细节全在贴图和灯光里", "meta": "实机 · C 0:00"}
+    ]},
+    {"id": "l2", "num": "L2", "eyebrow": "L2 · Pixel skin", "title": "L2 像素皮：贴图和角色是同一种像素", "toc": "像素皮", "blocks": [
+      {"type": "cols",
+       "left": [{"type": "prose", "paras": [
+         "模型的每一面都贴着像素画。石砖、木纹、草皮、地毯花纹都以“大像素”绘制，像素边缘清晰，不做平滑过滤。",
+         "关键是密度一致：在角色所在的焦平面附近，贴图的一个纹素和角色的一个像素差不多大，1080p 下都约 4 个屏幕像素 {{实测}}。远处的贴图随透视变小，又被景深虚化，所以看不出密度差。"]}],
+       "right": [{"type": "figure_note", "label": "TEXEL = PIXEL · 2×", "img": "c_tressa", "text": "特蕾莎约 32 像素高。脚下地毯的菱形花纹，一个纹素和她身上的一个像素差不多大，所以她不像贴在背景上的贴纸。", "meta": "初代 · E 0:06 · 原帧放大 2 倍"}]},
+      {"type": "matgrid", "h3": "材质样本", "intro": "实机画面里 100×100 像素的局部，放大 2 倍。视频经过压缩，像素边缘比游戏里软。", "items": [
+        {"img": "m_stairs", "name": "石阶", "meta": "冷灰石砖，上沿一道亮边 · A 2:30"},
+        {"img": "m_carpet", "name": "宅邸地毯", "meta": "菱形花纹，纹素与人物像素同大 · E 0:06"}]}
+    ]},
+    {"id": "l3", "num": "L3", "eyebrow": "L3 · Sprites", "title": "L3 角色与魔物：32 像素的小人站在真光里", "toc": "角色与魔物", "lede": "角色是标准的 16-bit 小人：约 32 美术像素高、2.5–3 头身。和传统像素游戏不同，它们站在 3D 场景里，会被场景灯光染色，也会投下影子。", "blocks": [
+      {"type": "cast", "items": [
+        {"img": "c_castti", "name": "卡斯蒂", "role": "二代 · 提灯", "width": 52},
+        {"img": "c_tressa", "name": "特蕾莎", "role": "初代 · 背面", "width": 73}],
+       "note": "按同一比例显示；色块取自截图，已经带着场景光的颜色。"},
+      {"type": "cols",
+       "left": [{"type": "spec", "label": "ANATOMY · 特蕾莎 · 初代", "blocks": [{"type": "image", "img": "c_tressa", "marks": [[52, 22], [30, 55], [70, 70]]}]}],
+       "right": [{"type": "marks", "items": [
+         "**头占三分之一。**四肢短，手脚各只用 2–3 个像素 {{目测}}。",
+         "**块面色阶。**每种材质 3–4 级色阶，不做平滑渐变，高光只有 1–2 个像素 {{目测}}。",
+         "**同色系收边。**用固有色更暗一级的颜色收边，而不是统一的纯黑线 {{目测}}。"]}]},
+      {"type": "lineup", "h3": "Boss：同一种像素，放大三倍半", "intro": "Boss 是与角色同一像素密度的大幅像素画，实测约 115 美术像素高，约为角色的 3.5 倍 {{实测}}。", "label": "LINEUP · TRUE SCALE · 同一帧", "items": [
+        {"img": "l_boss", "caption": "宅邸 Boss<br>约 115 像素", "height": 275},
+        {"img": "l_front", "caption": "欧尔贝克<br>约 32 像素", "height": 95}],
+       "note": "两张都取自 E 1:00 同一帧，按同一比例缩放。"},
+      {"type": "plate", "img": "battle_boss", "alt": "初代 Boss 战：Boss 占左半屏，四人斜向排开，窗光斜射。", "caption": "战斗构图：① Boss 占左半屏 ② 四人斜向排开，窗光继续斜射", "meta": "实机 · E 1:00", "marks": [[27, 42], [73, 63]]}
+    ]},
+    {"id": "l4", "num": "L4", "eyebrow": "L4 · Light", "title": "L4 光：低调的舞台布光", "toc": "光", "blocks": [
+      {"type": "cols", "layout": "wide-left",
+       "left": [{"type": "table", "head": ["光源", "颜色", "说明"], "v": [1], "rows": [
+         ["火光晕", "#E2B783 {{实测}}", "火盆、火把外圈"],
+         ["火光地面", "#C48D5D {{实测}}", "两座火盆之间的地面（C 0:00）"],
+         ["月光", "#33508A → #8C9EBE {{实测}}", "夜间环境光与冷高光"],
+         ["白天主光", "#ECC68E {{实测}}", "受光秋叶；阴影转为洋红褐 #311127"]]}],
+       "right": [{"type": "prose", "paras": [
+         "**低调布光。**实测 4 个参考画面里，暗部（L* < 20）占 43%–68%，亮部（L* ≥ 55）只占 4%–18% {{实测}}。",
+         "**移动光源。**二代夜间探索时，队首角色提着提灯，自己就是一个跟着走的暖光源 {{目测}}。",
+         "**体积光柱。**从画面上方斜射下来，边缘柔和，光里飘着浮尘 {{目测}}。"]}]}
+    ]},
+    {"id": "l5", "num": "L5", "eyebrow": "L5 · Atmosphere", "title": "L5 空气：浮尘、萤火和光斑", "toc": "空气", "blocks": [
+      {"type": "table", "head": ["元素", "在哪里看到", "表现"], "v": [1], "rows": [
+        ["萤火", "B 3:44", "夜间林道里零星的小光点"],
+        ["散景光斑", "C 0:00", "远处灯火虚化成大小不一的圆斑"],
+        ["前景虚影", "C 0:00", "画面下方的岩石虚化成大块暗色团"]]},
+      {"type": "plates", "items": [
+        {"img": "forest_night", "caption": "夜间林道：月光柱和萤火", "meta": "实机 · B 3:44"},
+        {"img": "harbour_night", "caption": "前景虚化成画框，远处灯火散成光斑", "meta": "实机 · C 0:00"}]}
+    ]},
+    {"id": "l6", "num": "L6", "eyebrow": "L6 · Lens & post", "title": "L6 镜头与后期：桌上的模型", "toc": "镜头与后期", "lede": "两段视频各取一帧，叠上实测的清晰度曲线。右侧横条越长，这一条画面越清晰；两条虚线之间是清晰带。", "blocks": [
+      {"type": "sharpness", "items": [
+        {"img": "stairs_night", "measure": "stairs_night", "caption": "A 秋叶石阶", "meta": "24 帧平均 · 实测"},
+        {"img": "harbour_night", "measure": "harbour", "caption": "C 港镇郊外", "meta": "24 帧平均 · 实测"}]},
+      {"type": "table", "head": ["项目", "做法", "依据"], "rows": [
+        ["探索视角", "3/4 斜俯视，窄视角，远近物体大小差别小", "{{目测}}"],
+        ["清晰带", "画面高度 25%–58%，顶端和底端降到峰值的 2%–25%", "{{实测}}"],
+        ["暗角", "四角亮度为中心的 13%–20%（L*）", "{{实测}}"],
+        ["泛光", "窗格、火焰、魔法过曝成白，向外晕开", "{{目测}}"]]}
+    ]},
+    {"id": "l7", "num": "L7", "eyebrow": "L7 · Interface", "title": "L7 界面：旧书里的物件", "toc": "界面", "lede": "界面像一本旧书里的物件：做旧纸片、鎏金画框、手写感的文字。下面的对话框按实机截图的配色用 CSS 重画。", "blocks": [
+      {"type": "uiwall", "html": "<div class='op-dialog kai'><span class='nm'>特蕾莎</span>前面的石阶，通往山顶的祭坛。</div>"},
+      {"type": "typespec", "rows": [
+        {"label": "对白与菜单 · 手写感楷体", "sample": "前面的石阶，通往山顶的祭坛。", "cls": "kai", "style": "font-size:24px"},
+        {"label": "HP 与 SP · 干净的无衬线", "sample": "HP 1,796　SP 62 / 80", "cls": "sans", "style": "font-size:20px;letter-spacing:.06em"}]}
+    ]},
+    {"id": "motion", "eyebrow": "Motion", "title": "动势：安静的世界，炸开的战斗", "toc": "动势", "lede": "探索时世界几乎静止：火盆摇曳，镜头只跟着角色平移。战斗把一切推到最大。", "blocks": [
+      {"type": "table", "head": ["动作", "时间点", "表现"], "v": [1], "rows": [
+        {"group": "FIELD"}, ["提灯", "C 1:16", "队首角色提着灯走，脚下一圈地面跟着亮"],
+        {"group": "BATTLE"}, ["遇敌", "C 0:19–0:21", "一声宽频冲击配约 1 秒黑场，直接进战斗曲"],
+        ["破防", "C 2:10", "敌人身上炸开蓝色晶片，叠一道白金色斩击光"]]}
+    ]},
+    {"id": "sound", "eyebrow": "Sound", "title": "声音：乐团演奏的 16-bit 旋律", "toc": "声音", "lede": "探索和夜景慢、用自然小调、几乎没有鼓；一进战斗就提速到约 160 bpm，响度高出约 13 dB。", "blocks": [
+      {"type": "table", "head": ["场景", "调性 · 速度", "主奏", "伴奏与环境"], "v": [1], "rows": [
+        ["港镇郊外", "A 自然小调 · 约 99", "—", "虫鸣、脚步"],
+        ["野外战斗", "A 小调 · 约 161", "—", "打击与爆裂音效"],
+        ["夜间林道", "C 小调 · 约 66", "—", "6.2 kHz 虫鸣"]],
+       "note": "调性、速度和环境声为实测；视频音轨经过压缩，又混着对白和音效，只作参考。主奏没有依据时留空。"},
+      {"type": "prose", "h3": "听感规律", "paras": [
+        "**探索慢，战斗快。**C 段探索约 99 bpm，战斗约 161 bpm {{实测}}。",
+        "**战斗比探索响约 13 dB。**C 段三次进出战斗，响度在 −30 dB 和 −17 dB 两档之间来回跳 {{实测}}。",
+        "**环境声让出中间。**虫鸣在 6 kHz 附近，配乐的旋律与和声留在 0.3–2.6 kHz {{实测}}。"]},
+      {"type": "loudness", "label": "LOUDNESS · C 段每秒响度 · 横线为每段平均", "series": "C", "segments": [
+        {"a": 0, "b": 19, "name": "探索", "kind": "calm"}, {"a": 19, "b": 65, "name": "战斗", "kind": "loud"},
+        {"a": 65, "b": 115, "name": "探索", "kind": "calm"}, {"a": 115, "b": 157, "name": "战斗", "kind": "loud"},
+        {"a": 157, "b": 179, "name": "探索", "kind": "calm"}, {"a": 179, "b": 202, "name": "战斗", "kind": "loud"},
+        {"a": 202, "b": 215, "name": "港口", "kind": "other"}]},
+      {"type": "spectrum", "label": "SPECTRUM · B 3:25–3:35 夜间林道", "img": "spec_B_205", "annotations": [
+        {"f0": 5800, "f1": 6600, "title": "虫鸣", "lines": ["约 6.2 kHz", "每 1.1 秒一声"]},
+        {"f0": 300, "f1": 2600, "title": "旋律与和声", "lines": ["0.3–2.6 kHz"]}],
+       "note": "越亮代表这个频率的能量越强。"},
+      {"type": "prose", "h3": "音画配合", "paras": [
+        "**遇敌。**一声约 1 秒的宽频冲击配合黑场，然后直接进战斗曲（C 0:19–0:21）。",
+        "**退出战斗。**结算画面之后是黑场和一小段静音，探索曲从头开始（C 1:04.7）。"]}
+    ]},
+    {"id": "rules", "eyebrow": "Rules", "title": "守则", "toc": "守则", "blocks": [
+      {"type": "rules",
+       "do": ["只让角色所在的水平带清晰，上下两端虚化。", "夜间暗部用靛紫，白天阴影用洋红褐。", "亮部控制在画面的 4%–18%，只照亮叙事焦点。", "精灵、贴图和地面小物共用一个像素密度，贴图点采样。", "特效用平滑粒子和泛光。"],
+       "dont": ["整个画面都清晰：失去微缩模型感，像普通 3D 游戏。", "用纯黑或中性灰做阴影：夜色发脏。", "平光、大面积高光：舞台感消失，看不出焦点。", "把角色换成高清立绘：丢掉像素内容这一半。", "把特效也做成像素风：丢掉高清光学这一半。"]}
+    ]},
+    {"id": "recipe", "eyebrow": "Recipe", "title": "复现配方", "toc": "复现配方", "lede": "新做一个场景，或把这个风格交给别的画师和工具时，从这里开始。标实测的是验收目标，标起调的是搭建时的起点。", "blocks": [
+      {"type": "table", "head": ["参数", "值", "作用"], "v": [1], "rows": [
+        {"group": "PIXEL"}, ["画布密度", "480×270 · 1 美术像素 ≈ 1080p 下 4 屏幕像素 {{实测}}", "精灵和贴图共用一个密度"],
+        ["角色精灵", "高约 32（27–33）· 2.5–3 头身 {{实测}}", "16-bit 小人"],
+        {"group": "CAMERA"}, ["视角", "透视相机 · 垂直视角 20°–30° {{起调}}", "窄视角，像长焦拍模型"],
+        ["景深", "清晰带 25%–58% · 顶 / 底降到峰值 2%–25% {{实测}}", "微缩模型感"],
+        {"group": "LIGHT"}, ["亮度分布", "暗部 43%–68% · 亮部 4%–18% {{实测}}", "低调布光"],
+        {"group": "SOUND"}, ["速度", "探索约 99 bpm · 战斗约 161 {{实测}}", "慢世界，快战斗"]]},
+      {"type": "check", "h3": "新场景检查清单", "items": [
+        "只有中间一条水平带清晰，上下两端有可虚化的前景和远景", "暗部带色相：夜靛紫、昼洋红褐", "至少一处暖色点光源，亮部不超过画面的 18%", "精灵约 32 像素高，贴图与精灵同密度、点采样", "特效平滑、带泛光，不像素化"]},
+      {"type": "prompts", "h3": "生图提示词", "intro": "基础段每次都带上，再接一个场景段；中英文内容一致。画幅用 16:9。", "items": [
+        {"lang": "基础段 · 中文", "text": "HD-2D 风格，约 32 像素高的 16-bit 像素画 Q 版小人站在一座 3D 微缩模型里；低多边形的 3D 场景贴着清晰锐利的像素画贴图，贴图的像素和角色的像素一样大；3/4 斜俯视，窄视角；强烈的移轴景深，只有画面中部一条水平带清晰；低调布光，大部分画面沉在带颜色的深暗部里，只有几处小小的暖色光源；体积光柱，漂浮的浮尘，强泛光，重暗角。"},
+        {"lang": "BASE · ENGLISH", "text": "HD-2D style, 16-bit pixel art chibi characters about 32 pixels tall standing inside a 3D diorama, low-poly 3D environment with crisp pixel-art textures, texel size matching the sprite pixels, 3/4 top-down view, narrow field of view, strong tilt-shift depth of field, only a horizontal band in the middle in focus, low-key lighting, most of the frame in deep colored shadow, small warm light sources, volumetric god rays, floating dust motes, heavy bloom, strong vignette."},
+        {"lang": "夜景段 · 中文", "text": "夜晚，靛紫色的环境光，阴影是深紫色而不是黑色；火盆的火芯白热，外圈是琥珀色光晕；左上方斜射下一道蓝色月光；远处的窗光变成暖色光斑。"},
+        {"lang": "NIGHT · ENGLISH", "text": "Night, indigo-violet ambient light, shadows are deep purple not black, braziers with white-hot cores and amber halos, a blue moonlight shaft from the upper left, distant windows as warm bokeh."},
+        {"lang": "负面 · 中文", "text": "平滑矢量画，高清手绘角色，写实人物，平光，纯黑阴影，高饱和霓虹色，整个画面都清晰，模糊或抗锯齿的像素画，像素大小不一"},
+        {"lang": "NEGATIVE · ENGLISH", "text": "smooth vector art, painted high-resolution characters, photorealistic people, flat even lighting, pure black shadows, neon oversaturated colors, everything in sharp focus, blurry or anti-aliased pixel art, mixed pixel sizes"}],
+       "note": "模型容易把角色画成高清立绘，可以重复强调 tiny pixel sprites。暗角和景深在生成后用修图软件补，比靠提示词更可控。"},
+      {"type": "prompts", "h3": "配乐提示词", "items": [
+        {"lang": "中文", "text": "探索曲：管弦乐 JRPG 野外音乐，16-bit 时代 RPG 的旋律写法，真实乐团录音的质感，自然小调，不用导音，约 100 bpm，怀旧、安静，几乎没有鼓，可无缝循环。\n\n战斗曲：JRPG 战斗音乐，管弦乐加鼓组，约 160 bpm，小调，激昂，可循环。"},
+        {"lang": "ENGLISH", "text": "Field theme: orchestral JRPG field music with 16-bit-era RPG melodies, live-orchestra feel, natural minor without a leading tone, about 100 bpm, nostalgic and calm, almost no drums, seamless loop.\n\nBattle theme: JRPG battle music, orchestra plus drum kit, about 160 bpm, minor key, energetic, loopable."}]},
+      {"type": "table", "h3": "参考帧索引", "cls": "idx", "head": ["代号", "来源", "内容", "用到的时间点"], "v": [3], "rows": [
+        ["A", "二代", "秋叶石阶，约 1:28–1:36 由夜转昼", "0:30 夜 · 2:30 昼"],
+        ["B", "二代", "夜间祭坛、白天海崖、夜间林道", "3:25–3:35 · 3:44"],
+        ["C", "二代", "港镇郊外夜景、野外夜战", "0:00 · 0:19 · 1:16 · 2:10"],
+        ["E", "初代", "宅邸对话与 Boss 战", "0:06 · 1:00"]]}
+    ]}
+  ],
+  "colophon": {"text": "依据 5 段实机视频整理。画面数值来自对视频帧的程序化测量：Lab 色彩聚类、按画面高度分 12 带的边缘锐度、四角与中心的亮度比、像素网格的周期；声音数值来自音轨分析。视频经过压缩，色值和像素尺寸都是近似值。截图已裁掉视频平台的水印。", "links": []},
+  "fonts": [{"family": "Ma Shan Zheng", "class": "kai"}, {"family": "Noto Sans SC", "class": "sans", "spec": "wght@400;500;700"}],
+  "extra_css": ".op-dialog{max-width:640px;margin:0 auto;position:relative;background:#CEC3B4;color:#3F3424;padding:30px 32px 26px;font-size:21px;line-height:1.7;clip-path:polygon(0 4%,3% 0,30% 2%,62% 0,97% 3%,100% 0,99% 52%,100% 97%,70% 100%,35% 98%,2% 100%,0 60%);box-shadow:0 10px 30px rgba(0,0,0,.5)}\n.op-dialog .nm{display:block;font-size:15px;letter-spacing:.12em;color:#7A6650;margin-bottom:4px}"
+}

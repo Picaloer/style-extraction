@@ -1,0 +1,18 @@
+{
+  "hero": {"src": "A@0:30", "focus_y": 0.55},
+  "plates": {
+    "stairs_night": "A@0:30",
+    "stairs_day": "A@2:30",
+    "harbour_night": "C@0:00",
+    "battle_boss": "E@1:00",
+    "forest_night": "B@3:44"
+  },
+  "specimens": {
+    "m_stairs": {"src": "A@2:30", "box": [820, 160, 920, 260], "scale": 2},
+    "m_carpet": {"src": "E@0:06", "box": [1010, 620, 1110, 720], "scale": 2},
+    "c_tressa": {"src": "E@0:06", "box": [905, 600, 1015, 750], "scale": 2},
+    "c_castti": {"src": "C@0:00", "box": [616, 340, 668, 438], "scale": 3},
+    "l_boss": {"src": "E@1:00", "box": [180, 170, 820, 720], "scale": 1, "mode": "smooth"},
+    "l_front": {"src": "E@1:00", "box": [1605, 680, 1745, 870], "scale": 2}
+  }
+}

@@ -1,0 +1,107 @@
+/* Amber-form extensions for footage-derived style documents: same tokens and frame language as amber.css.
+   Adds evidence tags, measured-palette rows, annotated plates, specimen grids, template-quirk fixes and print rules. */
+/* --f-kai and --f-sans are system stacks: they differ between machines. A `fonts` entry with "class": "kai" (or "sans") in
+   content.json loads a web font and puts it in front, e.g. Ma Shan Zheng (brush kai) or Noto Sans SC. LXGW WenKai TC draws
+   Traditional forms (眞, centred ，。), so it does not suit Simplified text. */
+:root{ --f-kai:"Kaiti SC","STKaiti","KaiTi","楷体",serif; --f-sans:"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+  /* the template's Latin and data stacks have no CJK face, so Chinese in captions, values and labels fell back to a system sans */
+  --f-latin:"Cinzel","Noto Serif SC","Times New Roman",serif; --f-data:"IBM Plex Mono","Noto Serif SC",ui-monospace,"SFMono-Regular",Consolas,monospace; }
+.kai{font-family:var(--f-kai)}
+.sans{font-family:var(--f-sans)}
+.nw{white-space:nowrap}
+.tag{display:inline-block;font-family:var(--f-body);font-size:11px;letter-spacing:.08em;color:var(--gold-dim);border:1px solid var(--line);padding:0 5px;margin-left:8px;line-height:1.6;vertical-align:1px;white-space:nowrap}
+.note{font-size:13px;color:var(--muted);line-height:1.7;margin:12px 0 0}
+.intro{font-size:14px;margin:0 0 16px}
+.sig b .u{font-family:var(--f-data);font-size:.42em;letter-spacing:.04em;margin-left:.35em;color:var(--muted)}
+/* table headers are Cinzel, which has capitals only: "kHz" would read "KHZ", so a unit in a header goes in <span class="u">; CJK headers stay whole */
+table.params th{word-break:keep-all;overflow-wrap:break-word}
+table.params th .u{font-family:var(--f-data);letter-spacing:.02em}
+
+/* template fixes: hero keeps its 2.2:1 ratio; plates after text get their gap; tables in two columns stack early;
+   swatch chips stay level when a neighbour's caption wraps */
+.hero img{height:auto}
+.swatches>.sw{align-self:start}
+.plate.sub{margin-top:48px}
+@media (max-width:1199px){.cols.tblcols{grid-template-columns:minmax(0,1fr)}}
+
+/* tiered palettes measured from frames */
+.tier-row{display:grid;grid-template-columns:132px minmax(0,1fr) 100px;gap:10px;align-items:center;margin-bottom:7px}
+.tier-row > span{font-size:13px;color:var(--muted);letter-spacing:.04em;line-height:1.35}
+.tier-row .meta{color:var(--gold-dim);text-align:right;white-space:nowrap;font-size:12px;font-variant-numeric:tabular-nums}
+.tier-bar{display:flex;height:30px;border:1px solid rgba(0,0,0,.5);overflow:hidden}
+.tier-bar i{display:block;height:100%;min-width:1px}
+.tier-bar i.cut{box-shadow:inset 2px 0 0 var(--ink)}
+.tier-key{display:flex;gap:4px 18px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:2px 0 12px 142px}
+
+/* colour script (static: one row per state) */
+.skybox img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.scripts .skybox{min-height:0;aspect-ratio:2/1}
+.scripts{gap:22px}
+
+/* annotated plates and specimens */
+.mkset{position:relative}
+.mkset .mk{position:absolute;width:22px;height:22px;margin:-11px 0 0 -11px;display:grid;place-items:center;font-family:var(--f-latin);font-size:11px;font-weight:700;color:var(--ink);background:var(--weak);transform:rotate(45deg);z-index:3;box-shadow:0 0 0 2px rgba(11,13,24,.65)}
+.mkset .mk span{transform:rotate(-45deg)}
+.anat img{width:100%;display:block}
+.pgrid{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:28px 22px;align-items:start}
+.cast img{display:block;height:auto;margin-top:auto;max-width:100%}
+.cast figure{justify-content:flex-end;min-height:190px}
+.lineup img{display:block;max-width:none}
+.lineup img.lu{height:calc(var(--h)*1px*var(--k,1));width:auto}
+/* centred when there is room; when the row is wider than the screen the auto margins drop to 0, so it starts at the left
+   and scrolls (justify-content:center would push the first figure out of reach) */
+.lineup.center{gap:clamp(20px,6vw,72px)}
+.lineup.center > figure:first-child{margin-left:auto}
+.lineup.center > figure:last-child{margin-right:auto}
+.matgrid img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border:1px solid rgba(0,0,0,.6);display:block}
+.texel{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:18px;align-items:center}
+.texel img{width:100%}
+@media (min-width:861px){.matgrid{grid-template-columns:repeat(var(--n,4),minmax(0,1fr))}}
+@media (min-width:1000px){
+  .cast{grid-template-columns:repeat(var(--n,6),minmax(0,1fr));gap:10px}
+  .cast figure{padding:12px 4px 10px}
+  .cast figcaption b{font-size:13px;letter-spacing:.06em}
+  .cast figcaption span{font-size:11px;letter-spacing:0}
+}
+
+/* sharpness profile over a plate */
+.band b.pb{position:absolute;right:0;background:linear-gradient(90deg,rgba(246,211,107,.12),rgba(246,211,107,.72));border-top:1px solid rgba(11,13,24,.55)}
+.band .pl{position:absolute;right:8px;top:4px;font-family:var(--f-data);font-size:11px;color:var(--ink);background:var(--weak);padding:1px 6px}
+.band em.left{left:8px;right:auto}
+.sharpgrid{row-gap:30px}
+@media (min-width:861px){.cols.sharpgrid.three{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}}
+
+@media (max-width:860px){
+  .pgrid{grid-template-columns:minmax(0,1fr)}
+  .tier-row{grid-template-columns:72px minmax(0,1fr) 80px}
+  .tier-row .meta{font-size:11px;letter-spacing:0}
+  .tier-key{margin-left:82px}
+  .texel{grid-template-columns:minmax(0,1fr)}
+  .texel img{max-width:260px}
+}
+@media (max-width:520px){
+  .lineup.center{gap:12px;--k:.68}    /* every figure shrinks by the same factor, so the true-scale ratios hold; the row scrolls sideways */
+}
+
+/* print: an art book in pages; every chapter starts on a new page */
+@page{size:1120px 1584px;margin:0}
+@media print{
+  html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:var(--ink)}
+  .book{padding-block:36px 40px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .sec{break-before:page;padding-top:24px}
+  .sec + .sec{border-top:0}
+  .btn{display:none!important}
+  /* Chromium draws every gradient that has a transparent stop as a page-sized bitmap (about 60 KB each; the sharpness bars alone
+     made 6 MB of PDF), so print gets flat translucent fills for them */
+  .band b.pb{background:rgba(246,211,107,.5)}
+  .cast figure,.pops{background:rgba(243,166,91,.06)}
+  .hero{break-after:avoid}
+  .eyebrow,.h,.h3,.lede,.intro{break-after:avoid}
+  figure,.spec,.prompt,.tier-row,.swgroup,.pillars li,.card div,.rules > div,.check li,.typespec .row,.uiwall,.script,tr,.marks li,.cols.sharpgrid > *,
+  .lineup,.frame,.skybox,.pops,.matgrid,.texel{break-inside:avoid}
+  /* a table can be longer than a page, so it may break; its bottom rule sits on the last row, where a page-bottom fit cannot strand it alone on the next page */
+  .tbl{overflow:visible;border-bottom:0}
+  .tbl tr:last-child > *{border-bottom:1px solid var(--line)}
+  .diagram{overflow:visible}
+  a{text-decoration:none}
+}
