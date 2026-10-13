@@ -95,13 +95,9 @@ Windows 上注意：路径总长超过 260 字符时浏览器会打不开文件�
 - HTML：[`autumn-stairs-style.html`](examples/output/autumn-stairs-style.html)（单文件，图片内嵌）
 - 内容源文件：[`content.json`](examples/output/content.json)、[`crops.json`](examples/output/crops.json)，改了它们再 `build` 就能重新生成
 
-文档截图（桌面端 1280 px 宽）：
+整份文档的长图（桌面端，缩小到 900 px 宽；点开原图可以放大看）：
 
-![page 1](examples/output/screenshots/page-01.jpg)
-![page 3](examples/output/screenshots/page-03.jpg)
-![page 5](examples/output/screenshots/page-05.jpg)
-![page 7](examples/output/screenshots/page-07.jpg)
-![page 9](examples/output/screenshots/page-09.jpg)
+[![full page](examples/output/full-page.jpg)](examples/output/full-page.jpg)
 
 这次实测得到的几个数字：1 个美术像素约 2.3 px（720p）；清晰带占画面高度的 25%–54%；暗部夜里占 67%–68%、傍晚占 51%–53%；全程 0 次切镜。
 
